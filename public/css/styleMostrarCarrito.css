@@ -1,6 +1,6 @@
 body {
     background-color: black;
-    overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -25,7 +25,7 @@ body {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    margin-right: 20px; /* Ajustar con margin */
+    margin-right: 20px;
 }
 
 .prenda-info {

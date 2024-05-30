@@ -52,9 +52,7 @@ class PrendaController extends Controller
             ->with('success','Prenda created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show($id)
     {
         $prenda = Prenda::find($id);

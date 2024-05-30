@@ -51,23 +51,18 @@ class CarritoController extends Controller
     {
         $usuario = Auth::user();
 
-        // Obtener las prendas en el carrito
         $prendasEnCarrito = $usuario->carrito->prendas;
 
-        // Obtener las prendas en el armario del usuario
         $prendasEnArmario = $usuario->armario->prendas->pluck('id')->toArray();
 
-        // Filtrar las prendas que no están en el armario
         $prendasParaAgregar = $prendasEnCarrito->reject(function ($prenda) use ($prendasEnArmario) {
             return in_array($prenda->id, $prendasEnArmario);
         });
 
-        // Adjuntar las prendas al armario solo si no están presentes
         if ($prendasParaAgregar->isNotEmpty()) {
             $usuario->armario->prendas()->attach($prendasParaAgregar->pluck('id'));
         }
 
-        // Vaciar el carrito del usuario
         $usuario->carrito->prendas()->detach();
 
         return redirect()->route('carrito.mostrar');
