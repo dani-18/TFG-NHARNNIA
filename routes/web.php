@@ -61,17 +61,17 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthMiddleware'], function ()
 
 
 Route::group(['middleware' =>'App\Http\Middleware\AdminMiddleware'], function () {
-    // Rutas protegidas para administradores
+
     Route::get('/prendascrear', [PrendaController::class, 'create'])->name('prendas.create');
 
     
     Route::get('/usuarios', [UserController::class, 'index'])->name('usuario.index');
-    // Ruta para eliminar un usuario
+
     Route::delete('/usuarios/{user}', [UserController::class, 'eliminarUsuario'])->name('usuario.eliminar');
 
-    // Ruta para mostrar el formulario de modificar un usuario
+
     Route::get('/usuarios/{user}/editar', [UserController::class, 'mostrarFormularioModificar'])->name('usuario.mostrarFormularioModificar');
 
-    // Ruta para modificar un usuario
+
     Route::put('/usuarios/{user}', [UserController::class, 'modificarUsuario'])->name('usuarios.modificar');
 });

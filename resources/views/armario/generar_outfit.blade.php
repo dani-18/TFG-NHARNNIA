@@ -88,7 +88,6 @@
                         <select name="genero" id="genero" class="form-control">
                             <option value="hombre">Masculino</option>
                             <option value="mujer">Femenino</option>
-                            <option value="unisex">Unisex</option>
                         </select>
                     </div>
                     <div class="form-group">
