@@ -27,29 +27,40 @@
                         <a class="nav-link" href="{{ route('carrito.mostrar') }}">Carrito</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Prendas</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Prendas
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('prendas.index') }}">Todas las Prendas</a></li>
-                            <li><a class="dropdown-item" href="#">Hombre</a></li>
-                            <li><a class="dropdown-item" href="#">Mujer</a></li>
+                            <li><a class="dropdown-item" href="{{ route('prendas.indexHombre') }}">Hombre</a></li>
+                            <li><a class="dropdown-item" href="{{ route('prendas.indexMujer') }}">Mujer</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Outfits</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Outfits
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('armario.mostrar_todos_outfits')}}">Mis outfits</a></li>
                             <li><a class="dropdown-item" href="{{ route('armario.generar_outfit') }}">Generar outfit</a></li>
                         </ul>
                     </li>
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('usuario.admin') }}">Panel Administrador</a>
+                            </li>
+                        @endif
+                    @endauth
                 </ul>
                 <div class="contenedor-boton-sesion ms-auto">
                     @guest
-                    <a class="btn btn-sm btn-light" href="{{ route('sesion.formulario-inicio-sesion') }}">Iniciar Sesión</a>
+                        <a class="btn btn-sm btn-light" href="{{ route('sesion.formulario-inicio-sesion') }}">Iniciar Sesión</a>
                     @else
-                    <form action="{{ route('cerrar-sesion') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-sm btn-light">Cerrar Sesión</button>
-                    </form>
+                        <form action="{{ route('cerrar-sesion') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-light">Cerrar Sesión</button>
+                        </form>
                     @endguest
                 </div>
             </div>

@@ -116,4 +116,8 @@ class UserController extends Controller
         return redirect()->route('usuario.index');
     }
 
+    public function panelAdministrador(){
+        return view('usuario.admin');
+    }
+
 }

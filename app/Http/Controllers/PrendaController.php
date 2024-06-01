@@ -64,4 +64,43 @@ class PrendaController extends Controller
         return view('prendas.create');
     }
 
+    public function edit($id)
+    {
+        $prenda = Prenda::find($id);
+        return view('prendas.edit', compact('prenda'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'estilo' => 'required',
+            'color1' => 'required',
+            'color2' => 'required',
+            'imagen' => 'required',
+            'tipo' => 'required',
+            'precio' => 'required',
+            'genero' => 'required',
+        ]);
+        $prenda = Prenda::find($id);
+        $prenda->update($request->all());
+        return redirect()->route('usuario.indexPrendas')
+            ->with('success', 'Prenda updated successfully.');
+    }
+
+    public function prendasAdmin()
+    {
+        $user = Auth::user();
+        $prendas = Prenda::all();
+        return view('usuario.indexPrendas', compact('prendas','user'));
+    }
+
+    public function destroy($id)
+    {
+        $prenda = Prenda::find($id);
+        $prenda->delete();
+        return redirect()->route('prendas.index')
+            ->with('success', 'Prenda deleted successfully.');
+    }
+
 }

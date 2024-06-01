@@ -45,6 +45,13 @@
                         <li><a class="dropdown-item" href="{{ route('armario.generar_outfit') }}">Generar outfit</a></li>
                     </ul>
                 </li>
+                @auth
+                    @if(Auth::user()->isAdmin())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('usuario.admin') }}">Panel Administrador</a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
             <div class="contenedor-boton-sesion ms-auto">
                 @guest

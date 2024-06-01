@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2024 a las 11:05:52
+-- Tiempo de generación: 01-06-2024 a las 12:15:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,7 +40,6 @@ CREATE TABLE `armarios` (
 
 INSERT INTO `armarios` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 (4, 5, '2024-05-23 16:01:10', '2024-05-23 16:01:10'),
-(5, 6, '2024-05-26 12:34:43', '2024-05-26 12:34:43'),
 (6, 7, '2024-05-30 13:15:04', '2024-05-30 13:15:04'),
 (11, 8, '2024-05-30 13:18:46', '2024-05-30 13:18:46');
 
@@ -77,14 +76,6 @@ INSERT INTO `armario_prenda` (`armario_id`, `prenda_id`, `updated_at`, `created_
 (4, 31, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
 (4, 32, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
 (4, 33, '2024-06-01 06:44:30', '2024-06-01 06:44:30'),
-(5, 1, '2024-05-28 14:37:45', '2024-05-28 14:37:45'),
-(5, 2, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
-(5, 3, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
-(5, 5, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
-(5, 8, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
-(5, 9, '2024-05-28 14:37:45', '2024-05-28 14:37:45'),
-(5, 10, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
-(5, 15, '2024-05-28 14:37:45', '2024-05-28 14:37:45'),
 (11, 1, '2024-05-30 13:19:48', '2024-05-30 13:19:48'),
 (11, 2, '2024-05-30 13:19:48', '2024-05-30 13:19:48'),
 (11, 3, '2024-05-30 13:19:48', '2024-05-30 13:19:48'),
@@ -135,7 +126,6 @@ CREATE TABLE `carritos` (
 
 INSERT INTO `carritos` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 (4, 5, '2024-05-23 16:01:10', '2024-05-23 16:01:10'),
-(5, 6, '2024-05-26 12:34:43', '2024-05-26 12:34:43'),
 (6, 7, '2024-05-30 13:15:08', '2024-05-30 13:15:08'),
 (7, 8, '2024-05-30 13:15:49', '2024-05-30 13:15:49');
 
@@ -317,7 +307,7 @@ CREATE TABLE `prendas` (
 --
 
 INSERT INTO `prendas` (`id`, `nombre`, `estilo`, `color1`, `color2`, `imagen`, `tipo`, `precio`, `genero`, `created_at`, `updated_at`) VALUES
-(1, 'Camiseta Blanca', 'casual', 'blanco', 'blanco', 'https://ladudapublicidad.b-cdn.net/wp-content/uploads/2014/04/Camiseta-Heavy-T-blanca-fruit-of-the-loom-61-212-30_cutout_front-scaled.jpg', 'arriba_interior', 12.99, 'hombre', '2024-03-28 16:05:01', '2024-03-28 16:05:01'),
+(1, 'Camiseta Blanca', 'casual', 'blanco', 'blanco', 'https://ladudapublicidad.b-cdn.net/wp-content/uploads/2014/04/Camiseta-Heavy-T-blanca-fruit-of-the-loom-61-212-30_cutout_front-scaled.jpg', 'arriba_interior', 12.99, 'hombre', '2024-03-28 16:05:01', '2024-06-01 08:09:02'),
 (2, 'Pantalones cortos azules', 'casual', 'azul', 'azul', 'https://static.sprintercdn.com/products/073e50af-2e57-4dcd-9e57-704de801d525/pantal-n-acerbis-mani-mujer_073e50af-2e57-4dcd-9e57-704de801d525_1_2833153758.jpg', 'pantalones_verano', 15, 'hombre', '2024-03-29 10:17:08', '2024-03-29 10:17:08'),
 (3, 'Zapatillas Blancas', 'casual', 'blanco', 'blanco', 'https://m.media-amazon.com/images/I/51cnfh-XAQL._AC_UY580_.jpg', 'calzado', 50, 'hombre', '2024-03-29 10:19:48', '2024-03-29 10:19:48'),
 (4, 'Pantalones vaqueros', 'casual', 'azul', 'azul', 'https://www.bolf.es/spa_pl_Pantalon-vaquero-slim-fit-para-hombre-azul-oscuro-Bolf-6147-89601_7.jpg', 'pantalones', 29.99, 'hombre', '2024-03-29 12:14:45', '2024-03-29 12:14:45'),
@@ -368,7 +358,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6npg3XN2yP1d4K7n31dNUbUziFmOFSjv0zcc461M', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUHFRNXhpN3pyamZBeFpmblZUdnJSTmo0cHpPTDZLR3NsMDBLNFY5eCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9vdXRmaXQvbGlzdGEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo1O30=', 1717232613);
+('QQaXqwMoJ1LMlZrhrDwGgdW3R5t4l9W1I6xVtfRH', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUHFRNXhpN3pyamZBeFpmblZUdnJSTmo0cHpPTDZLR3NsMDBLNFY5eCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjU7fQ==', 1717236934);
 
 -- --------------------------------------------------------
 
@@ -393,8 +383,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `rol`) VALUES
-(5, 'Admin', 'admin@gmail.com', NULL, '$2y$12$vhzom95r/9XPpRBtJ79/UOXMBMEkB5Of6AwCJe1thGuJ1Wu32FIrm', NULL, '2024-05-23 15:53:17', '2024-05-23 15:53:17', 'admin'),
-(6, 'Dani', 'ricardo@gmail.com', NULL, '$2y$12$7h.I/6XVzq0RYWMW9C8/qOS0xZQvCuyQj8Kwue1gnZNIOwFsTLgLS', NULL, '2024-05-26 12:33:59', '2024-05-26 12:40:46', 'usuario'),
+(5, 'Admin', 'admin@gmail.com', NULL, '$2y$12$vhzom95r/9XPpRBtJ79/UOXMBMEkB5Of6AwCJe1thGuJ1Wu32FIrm', NULL, '2024-05-23 15:53:17', '2024-06-01 08:09:40', 'admin'),
 (7, 'Dani', 'dani@gmail.com', NULL, '$2y$12$Ae2Lr.vb7WG51n2zG9ZsnuL93DwYhDK4I6caM/z1/Fz2dyFIeBc5y', NULL, '2024-05-30 13:11:22', '2024-05-30 13:11:22', 'usuario'),
 (8, 'Pepe', 'pepe@gmail.com', NULL, '$2y$12$e.jhp7unkO9CY3/dNMOotucx0XBSkte.P8qVQGE3SqUmsETMWiDIy', NULL, '2024-05-30 13:15:41', '2024-05-30 13:15:41', 'usuario');
 
@@ -555,13 +544,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `outfits`
 --
 ALTER TABLE `outfits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT de la tabla `outfit_prenda`
 --
 ALTER TABLE `outfit_prenda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=579;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=583;
 
 --
 -- AUTO_INCREMENT de la tabla `prendas`

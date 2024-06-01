@@ -27,8 +27,6 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthMiddleware'], function ()
     Route::get('/index', PrendaController::class .'@index')->name('prendas.index');
 
     Route::get('/prendas/{prenda}', PrendaController::class .'@show')->name('prendas.show');
-
-    Route::delete('/prendas/{prenda}', PrendaController::class .'@destroy')->name('prendas.destroy');
     
     Route::post('/prendas', PrendaController::class .'@store')->name('prendas.store');
     
@@ -63,15 +61,22 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthMiddleware'], function ()
 Route::group(['middleware' =>'App\Http\Middleware\AdminMiddleware'], function () {
 
     Route::get('/prendascrear', [PrendaController::class, 'create'])->name('prendas.create');
-
     
     Route::get('/usuarios', [UserController::class, 'index'])->name('usuario.index');
 
     Route::delete('/usuarios/{user}', [UserController::class, 'eliminarUsuario'])->name('usuario.eliminar');
 
-
     Route::get('/usuarios/{user}/editar', [UserController::class, 'mostrarFormularioModificar'])->name('usuario.mostrarFormularioModificar');
 
-
     Route::put('/usuarios/{user}', [UserController::class, 'modificarUsuario'])->name('usuarios.modificar');
+
+    Route::get('/admin', [UserController::class, 'panelAdministrador'])->name('usuario.admin');
+
+    Route::get('/prendas/{id}/edit', [PrendaController::class, 'edit'])->name('prendas.edit');
+
+    Route::put('/prendas/{id}', [PrendaController::class, 'update'])->name('prendas.update');
+
+    Route::get('/prendasAdmin', [PrendaController::class, 'prendasAdmin'])->name('usuario.indexPrendas');
+
+    Route::delete('/prendas/{prenda}', PrendaController::class .'@destroy')->name('prendas.destroy');
 });
