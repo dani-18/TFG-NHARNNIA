@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2024 a las 18:12:10
+-- Tiempo de generación: 01-06-2024 a las 11:05:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -62,6 +62,21 @@ CREATE TABLE `armario_prenda` (
 --
 
 INSERT INTO `armario_prenda` (`armario_id`, `prenda_id`, `updated_at`, `created_at`) VALUES
+(4, 1, '2024-06-01 06:44:56', '2024-06-01 06:44:56'),
+(4, 2, '2024-06-01 06:44:56', '2024-06-01 06:44:56'),
+(4, 3, '2024-06-01 06:44:56', '2024-06-01 06:44:56'),
+(4, 7, '2024-06-01 07:02:53', '2024-06-01 07:02:53'),
+(4, 8, '2024-06-01 07:02:53', '2024-06-01 07:02:53'),
+(4, 10, '2024-06-01 07:02:53', '2024-06-01 07:02:53'),
+(4, 15, '2024-06-01 06:55:22', '2024-06-01 06:55:22'),
+(4, 16, '2024-06-01 06:58:22', '2024-06-01 06:58:22'),
+(4, 25, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
+(4, 26, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
+(4, 28, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
+(4, 29, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
+(4, 31, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
+(4, 32, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
+(4, 33, '2024-06-01 06:44:30', '2024-06-01 06:44:30'),
 (5, 1, '2024-05-28 14:37:45', '2024-05-28 14:37:45'),
 (5, 2, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
 (5, 3, '2024-05-28 14:47:36', '2024-05-28 14:47:36'),
@@ -137,14 +152,6 @@ CREATE TABLE `carrito_prenda` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `carrito_prenda`
---
-
-INSERT INTO `carrito_prenda` (`id`, `carrito_id`, `prenda_id`, `created_at`, `updated_at`) VALUES
-(237, 4, 3, '2024-05-23 16:01:21', '2024-05-23 16:01:21'),
-(238, 4, 4, '2024-05-23 16:01:26', '2024-05-23 16:01:26');
 
 -- --------------------------------------------------------
 
@@ -237,10 +244,9 @@ CREATE TABLE `outfits` (
 --
 
 INSERT INTO `outfits` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
-(140, 6, '2024-05-28 14:47:50', '2024-05-28 14:47:50'),
-(149, 8, '2024-05-30 13:33:59', '2024-05-30 13:33:59'),
-(150, 8, '2024-05-30 13:34:28', '2024-05-30 13:34:28'),
-(151, 8, '2024-05-30 13:35:15', '2024-05-30 13:35:15');
+(151, 8, '2024-05-30 13:35:15', '2024-05-30 13:35:15'),
+(153, 5, '2024-06-01 06:45:02', '2024-06-01 06:45:02'),
+(157, 5, '2024-06-01 07:03:18', '2024-06-01 07:03:18');
 
 -- --------------------------------------------------------
 
@@ -262,21 +268,17 @@ CREATE TABLE `outfit_prenda` (
 --
 
 INSERT INTO `outfit_prenda` (`id`, `outfit_id`, `prenda_id`, `tipo`, `created_at`, `updated_at`) VALUES
-(516, 140, 1, 'arriba_interior', NULL, NULL),
-(517, 140, 10, 'arriba_normal', NULL, NULL),
-(518, 140, 8, 'pantalones', NULL, NULL),
-(519, 140, 9, 'calzado', NULL, NULL),
-(546, 149, 1, 'arriba_interior', NULL, NULL),
-(547, 149, 2, 'pantalones_verano', NULL, NULL),
-(548, 149, 3, 'calzado', NULL, NULL),
-(549, 150, 1, 'arriba_interior', NULL, NULL),
-(550, 150, 5, 'arriba_normal', NULL, NULL),
-(551, 150, 8, 'pantalones', NULL, NULL),
-(552, 150, 3, 'calzado', NULL, NULL),
 (553, 151, 1, 'arriba_interior', NULL, NULL),
 (554, 151, 5, 'arriba_normal', NULL, NULL),
 (555, 151, 8, 'pantalones', NULL, NULL),
-(556, 151, 3, 'calzado', NULL, NULL);
+(556, 151, 3, 'calzado', NULL, NULL),
+(560, 153, 1, 'arriba_interior', NULL, NULL),
+(561, 153, 2, 'pantalones_verano', NULL, NULL),
+(562, 153, 3, 'calzado', NULL, NULL),
+(575, 157, 33, 'arriba_interior', NULL, NULL),
+(576, 157, 26, 'arriba_exterior', NULL, NULL),
+(577, 157, 32, 'pantalones', NULL, NULL),
+(578, 157, 25, 'calzado', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -338,7 +340,13 @@ INSERT INTO `prendas` (`id`, `nombre`, `estilo`, `color1`, `color2`, `imagen`, `
 (23, 'Chaqueta Oversized', 'casual', 'blanco', 'blanco', 'https://img01.ztat.net/article/spp-media-p1/129418d15dac4f138e7b07addf6c6f1e/9a6ef386f4d8491d9c44dcf5b11ea743.jpg?imwidth=1800&filter=packshot', 'arriba_normal', 89.99, 'mujer', NULL, NULL),
 (24, 'Zapatillas Adidas VL Court', 'casual', 'gris', 'blanco', 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07be140d2fa04494a7cdb8cfbe051151_9366/Zapatilla_VL_Court_Bold_Gris_IF9784_01_standard.jpg', 'calzado', 79.99, 'mujer', NULL, NULL),
 (25, 'Zapatillas Deportivas Negras', 'deportivo', 'negro', 'rosa', 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/b740bfcdaed6ff0f37e674b04ba7362c.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp', 'calzado', 19.99, 'mujer', NULL, NULL),
-(26, 'Chaqueta Challenger Columbia', 'deportivo', 'negro', 'negro', 'https://img01.ztat.net/article/spp-media-p1/a9a0b21006514d51b6e9c792e3276979/c4c19b16c7134a53aa3d3bb2da63d155.jpg?imwidth=1800&filter=packshot', 'arriba_normal', 55.99, 'mujer', NULL, NULL);
+(26, 'Chaqueta Challenger Columbia', 'deportivo', 'negro', 'negro', 'https://img01.ztat.net/article/spp-media-p1/a9a0b21006514d51b6e9c792e3276979/c4c19b16c7134a53aa3d3bb2da63d155.jpg?imwidth=1800&filter=packshot', 'arriba_exterior', 55.99, 'mujer', NULL, NULL),
+(28, 'Camiseta Básica Azul', 'casual', 'azul', 'azul', 'https://gasoilonline.com/444-large_default/camiseta-mujer-azul-claro-lisa.jpg', 'arriba_interior', 12.99, 'mujer', '2024-06-01 06:09:55', '2024-06-01 06:09:55'),
+(29, 'Camiseta Deportiva Adidas Rosa', 'deportivo', 'rosa', 'rosa', 'https://pisandofuerte.es/36697-home_default/camisetas-mujer-adidas-rn-fast-rosa-hk9006.jpg', 'arriba_interior', 25.99, 'mujer', '2024-06-01 06:12:46', '2024-06-01 06:12:46'),
+(30, 'Pantalones Cargo Beige', 'casual', 'beige', 'beige', 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/262fec43239627ed2f2eaaa6eb2b311c.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp', 'pantalones', 35.99, 'hombre', '2024-06-01 06:14:31', '2024-06-01 06:14:31'),
+(31, 'Zapatillas Blancas Sketch-Lite', 'deportivo', 'blanco', 'blanco', 'https://cdn.palbincdn.com/users/26844/images/ZAPATILLAS-DEPORTIVAS-MUJER-MEMORY-FOAM-SKECHERS-SKECH-LITE-PRO-1696177642.jpg', 'calzado', 64.99, 'mujer', '2024-06-01 06:18:45', '2024-06-01 06:18:45'),
+(32, 'Pantalones Adidas Track', 'deportivo', 'negro', 'negro', 'https://bixoto.com/media/catalog/product/cache/2e45ba69d70625e0fc47dbc2d34862e1/4/0/4061619615715_S6494849_P02.jpg', 'pantalones', 39.99, 'mujer', '2024-06-01 06:29:42', '2024-06-01 06:29:42'),
+(33, 'Camiseta Adidas Negra', 'deportivo', 'negro', 'negro', 'https://trideporte.com/35529-medium_default/camiseta-manga-corta-adidas-designed-2-move-3-rayas-mujer-negra.jpg', 'arriba_interior', 24.99, 'mujer', '2024-06-01 06:42:29', '2024-06-01 06:42:29');
 
 -- --------------------------------------------------------
 
@@ -360,7 +368,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('WkzofcW6WqO9Xeyez3SDvL7G6g3CWsrk1U8z8cgu', 8, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ1RyUzZUVXZ3dnRaZ3NOT2RVT3Q1ZzNLZGhKNWY2anJQT0kwN3RlTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcm1hcmlvL2dlbmVyYXItb3V0Zml0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6ODt9', 1717083315);
+('6npg3XN2yP1d4K7n31dNUbUziFmOFSjv0zcc461M', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUHFRNXhpN3pyamZBeFpmblZUdnJSTmo0cHpPTDZLR3NsMDBLNFY5eCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9vdXRmaXQvbGlzdGEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo1O30=', 1717232613);
 
 -- --------------------------------------------------------
 
@@ -523,7 +531,7 @@ ALTER TABLE `carritos`
 -- AUTO_INCREMENT de la tabla `carrito_prenda`
 --
 ALTER TABLE `carrito_prenda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=256;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -547,19 +555,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `outfits`
 --
 ALTER TABLE `outfits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT de la tabla `outfit_prenda`
 --
 ALTER TABLE `outfit_prenda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=557;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=579;
 
 --
 -- AUTO_INCREMENT de la tabla `prendas`
 --
 ALTER TABLE `prendas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

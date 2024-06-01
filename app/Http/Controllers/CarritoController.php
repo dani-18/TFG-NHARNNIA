@@ -159,7 +159,7 @@ class CarritoController extends Controller
 
 
 
-    public function generarOutfitCompleto(Request $request)
+public function generarOutfitCompleto(Request $request)
 {
     $usuario = Auth::user();
 
@@ -167,7 +167,6 @@ class CarritoController extends Controller
         session()->put('error', 'Tu armario está vacío. Agrega prendas para generar un outfit.');
         return redirect()->route('armario.generar_outfit');
     }
-
 
     $estilo = $request->input('estilo');
     $genero = $request->input('genero');
@@ -180,7 +179,6 @@ class CarritoController extends Controller
         $apiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=$latitud&lon=$longitud&appid=$apiKey";
     
         $response = file_get_contents($apiUrl);
-    
         $data = json_decode($response, true);
     
         if ($data && isset($data['main']['temp'])) {
@@ -207,45 +205,67 @@ class CarritoController extends Controller
 
     $prendasFiltradas = $this->filtrarPrendasPorColores($prendas);
 
-    if (($clima == 'invierno' && (count($prendas) < 5 || 
-        !$prendas->contains('tipo', 'arriba_interior') || 
-        !$prendas->contains('tipo', 'arriba_normal') || 
-        !$prendas->contains('tipo', 'arriba_exterior') || 
-        !$prendas->contains('tipo', 'pantalones') || 
-        !$prendas->contains('tipo', 'calzado'))) ||
+    // Condición para clima y cantidad de prendas
+    if (
+        ($clima == 'invierno' && ($estilo != 'deportivo') && 
+            (count($prendas) < 5 || 
+            !$prendas->contains('tipo', 'arriba_interior') || 
+            !$prendas->contains('tipo', 'arriba_normal') || 
+            !$prendas->contains('tipo', 'arriba_exterior') || 
+            !$prendas->contains('tipo', 'pantalones') || 
+            !$prendas->contains('tipo', 'calzado'))) ||
+
+        ($clima == 'invierno' && $estilo == 'deportivo' && 
+            (count($prendas) < 4 || 
+            !$prendas->contains('tipo', 'arriba_interior') || 
+            !$prendas->contains('tipo', 'arriba_exterior') || 
+            !$prendas->contains('tipo', 'pantalones') || 
+            !$prendas->contains('tipo', 'calzado'))) ||
 
         ($clima == 'normal' && (count($prendas) < 4 || 
-        !$prendas->contains('tipo', 'arriba_interior') || 
-        !$prendas->contains('tipo', 'arriba_normal') || 
-        !$prendas->contains('tipo', 'pantalones') || 
-        !$prendas->contains('tipo', 'calzado'))) ||
+            !$prendas->contains('tipo', 'arriba_interior') || 
+            !$prendas->contains('tipo', 'arriba_normal') || 
+            !$prendas->contains('tipo', 'pantalones') || 
+            !$prendas->contains('tipo', 'calzado'))) ||
 
         ($clima == 'verano' && (count($prendas) < 3 || 
-        !$prendas->contains('tipo', 'arriba_interior') || 
-        !$prendas->contains('tipo', 'pantalones_verano') || 
-        !$prendas->contains('tipo', 'calzado')))) {
-            session()->put('error', 'No hay suficientes prendas en tu armario para el clima seleccionado o faltan prendas necesarias. Por favor, agrega más prendas.');
-            return redirect()->route('armario.generar_outfit');
+            !$prendas->contains('tipo', 'arriba_interior') || 
+            !$prendas->contains('tipo', 'pantalones_verano') || 
+            !$prendas->contains('tipo', 'calzado')))
+    ) {
+        session()->put('error', 'No hay suficientes prendas en tu armario para el clima seleccionado o faltan prendas necesarias. Por favor, agrega más prendas.');
+        return redirect()->route('armario.generar_outfit');
     }
 
     $outfit = new Outfit();
     $outfit->user_id = $usuario->id;
     $outfit->save();
 
-
     switch ($clima) {
         case 'invierno':
-            $parte_arriba_interior = $prendasFiltradas->where('tipo', 'arriba_interior')->random();
-            $parte_arriba_normal = $prendasFiltradas->where('tipo', 'arriba_normal')->random();
-            $parte_arriba_exterior = $prendasFiltradas->where('tipo', 'arriba_exterior')->random();
-            $parte_abajo = $prendasFiltradas->where('tipo', 'pantalones')->random();
-            $calzado = $prendasFiltradas->where('tipo', 'calzado')->random();
-            
-            $outfit->prendas()->attach($parte_arriba_interior->id, ['tipo' => 'arriba_interior']);
-            $outfit->prendas()->attach($parte_arriba_normal->id, ['tipo' => 'arriba_normal']);
-            $outfit->prendas()->attach($parte_arriba_exterior->id, ['tipo' => 'arriba_exterior']);
-            $outfit->prendas()->attach($parte_abajo->id, ['tipo' => 'pantalones']);
-            $outfit->prendas()->attach($calzado->id, ['tipo' => 'calzado']);
+            if ($estilo == 'deportivo') {
+                $parte_arriba_interior = $prendasFiltradas->where('tipo', 'arriba_interior')->random();
+                $parte_arriba_exterior = $prendasFiltradas->where('tipo', 'arriba_exterior')->random();
+                $parte_abajo = $prendasFiltradas->where('tipo', 'pantalones')->random();
+                $calzado = $prendasFiltradas->where('tipo', 'calzado')->random();
+
+                $outfit->prendas()->attach($parte_arriba_interior->id, ['tipo' => 'arriba_interior']);
+                $outfit->prendas()->attach($parte_arriba_exterior->id, ['tipo' => 'arriba_exterior']);
+                $outfit->prendas()->attach($parte_abajo->id, ['tipo' => 'pantalones']);
+                $outfit->prendas()->attach($calzado->id, ['tipo' => 'calzado']);
+            } else {
+                $parte_arriba_interior = $prendasFiltradas->where('tipo', 'arriba_interior')->random();
+                $parte_arriba_normal = $prendasFiltradas->where('tipo', 'arriba_normal')->random();
+                $parte_arriba_exterior = $prendasFiltradas->where('tipo', 'arriba_exterior')->random();
+                $parte_abajo = $prendasFiltradas->where('tipo', 'pantalones')->random();
+                $calzado = $prendasFiltradas->where('tipo', 'calzado')->random();
+
+                $outfit->prendas()->attach($parte_arriba_interior->id, ['tipo' => 'arriba_interior']);
+                $outfit->prendas()->attach($parte_arriba_normal->id, ['tipo' => 'arriba_normal']);
+                $outfit->prendas()->attach($parte_arriba_exterior->id, ['tipo' => 'arriba_exterior']);
+                $outfit->prendas()->attach($parte_abajo->id, ['tipo' => 'pantalones']);
+                $outfit->prendas()->attach($calzado->id, ['tipo' => 'calzado']);
+            }
             break;
 
         case 'normal':
@@ -274,6 +294,7 @@ class CarritoController extends Controller
     $prendasOutfit = $outfit->prendas;
     return view('armario.mostrar_outfit', compact('prendasOutfit'));
 }
+
 
 
 
