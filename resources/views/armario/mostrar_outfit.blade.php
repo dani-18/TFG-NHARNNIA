@@ -68,7 +68,7 @@
 </nav>
 
 <div class="container outfit-container">
-    <h1 style="color:black;">Outfit generado</h1>
+    <h1 style="color:black; font-weight:bolder;">Outfit generado</h1>
     <div>
         <h2 style="color:black;">Prendas del outfit:</h2>
         <ul class="outfit-list">

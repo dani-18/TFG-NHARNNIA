@@ -100,7 +100,7 @@
                     <div class="form-group">
                         <div class="form-check">
                             <input type="checkbox" id="ubicacionCheckbox" name="ubicacion" class="form-check-input">
-                            <label class="form-check-label" for="ubicacionCheckbox">Usar ubicación actual</label>
+                            <label class="form-check-label" for="ubicacionCheckbox">Usar ubicación</label>
                         </div>
                     </div>
                     <div class="form-group" id="ubicacionGroup" style="display: none;">
