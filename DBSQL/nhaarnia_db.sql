@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2024 a las 12:15:50
+-- Tiempo de generación: 07-06-2024 a las 11:10:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -76,6 +76,9 @@ INSERT INTO `armario_prenda` (`armario_id`, `prenda_id`, `updated_at`, `created_
 (4, 31, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
 (4, 32, '2024-06-01 06:30:38', '2024-06-01 06:30:38'),
 (4, 33, '2024-06-01 06:44:30', '2024-06-01 06:44:30'),
+(6, 1, '2024-06-04 13:27:59', '2024-06-04 13:27:59'),
+(6, 2, '2024-06-04 13:27:59', '2024-06-04 13:27:59'),
+(6, 3, '2024-06-04 13:27:59', '2024-06-04 13:27:59'),
 (11, 1, '2024-05-30 13:19:48', '2024-05-30 13:19:48'),
 (11, 2, '2024-05-30 13:19:48', '2024-05-30 13:19:48'),
 (11, 3, '2024-05-30 13:19:48', '2024-05-30 13:19:48'),
@@ -236,7 +239,9 @@ CREATE TABLE `outfits` (
 INSERT INTO `outfits` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 (151, 8, '2024-05-30 13:35:15', '2024-05-30 13:35:15'),
 (153, 5, '2024-06-01 06:45:02', '2024-06-01 06:45:02'),
-(157, 5, '2024-06-01 07:03:18', '2024-06-01 07:03:18');
+(157, 5, '2024-06-01 07:03:18', '2024-06-01 07:03:18'),
+(159, 7, '2024-06-04 13:28:12', '2024-06-04 13:28:12'),
+(160, 7, '2024-06-04 13:29:21', '2024-06-04 13:29:21');
 
 -- --------------------------------------------------------
 
@@ -268,7 +273,13 @@ INSERT INTO `outfit_prenda` (`id`, `outfit_id`, `prenda_id`, `tipo`, `created_at
 (575, 157, 33, 'arriba_interior', NULL, NULL),
 (576, 157, 26, 'arriba_exterior', NULL, NULL),
 (577, 157, 32, 'pantalones', NULL, NULL),
-(578, 157, 25, 'calzado', NULL, NULL);
+(578, 157, 25, 'calzado', NULL, NULL),
+(583, 159, 1, 'arriba_interior', NULL, NULL),
+(584, 159, 2, 'pantalones_verano', NULL, NULL),
+(585, 159, 3, 'calzado', NULL, NULL),
+(586, 160, 1, 'arriba_interior', NULL, NULL),
+(587, 160, 2, 'pantalones_verano', NULL, NULL),
+(588, 160, 3, 'calzado', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -308,7 +319,7 @@ CREATE TABLE `prendas` (
 
 INSERT INTO `prendas` (`id`, `nombre`, `estilo`, `color1`, `color2`, `imagen`, `tipo`, `precio`, `genero`, `created_at`, `updated_at`) VALUES
 (1, 'Camiseta Blanca', 'casual', 'blanco', 'blanco', 'https://ladudapublicidad.b-cdn.net/wp-content/uploads/2014/04/Camiseta-Heavy-T-blanca-fruit-of-the-loom-61-212-30_cutout_front-scaled.jpg', 'arriba_interior', 12.99, 'hombre', '2024-03-28 16:05:01', '2024-06-01 08:09:02'),
-(2, 'Pantalones cortos azules', 'casual', 'azul', 'azul', 'https://static.sprintercdn.com/products/073e50af-2e57-4dcd-9e57-704de801d525/pantal-n-acerbis-mani-mujer_073e50af-2e57-4dcd-9e57-704de801d525_1_2833153758.jpg', 'pantalones_verano', 15, 'hombre', '2024-03-29 10:17:08', '2024-03-29 10:17:08'),
+(2, 'Pantalones cortos azules', 'deportivo', 'azul', 'azul', 'https://static.sprintercdn.com/products/073e50af-2e57-4dcd-9e57-704de801d525/pantal-n-acerbis-mani-mujer_073e50af-2e57-4dcd-9e57-704de801d525_1_2833153758.jpg', 'pantalones_verano', 15, 'hombre', '2024-03-29 10:17:08', '2024-06-05 15:21:48'),
 (3, 'Zapatillas Blancas', 'casual', 'blanco', 'blanco', 'https://m.media-amazon.com/images/I/51cnfh-XAQL._AC_UY580_.jpg', 'calzado', 50, 'hombre', '2024-03-29 10:19:48', '2024-03-29 10:19:48'),
 (4, 'Pantalones vaqueros', 'casual', 'azul', 'azul', 'https://www.bolf.es/spa_pl_Pantalon-vaquero-slim-fit-para-hombre-azul-oscuro-Bolf-6147-89601_7.jpg', 'pantalones', 29.99, 'hombre', '2024-03-29 12:14:45', '2024-03-29 12:14:45'),
 (5, 'Sudadera Blanca', 'casual', 'blanco', 'blanco', 'https://shoppinginibiza.com/181527-large_default/nike-sudadera-blanca-fd3000-100-ninoa-.jpg', 'arriba_normal', 32.99, 'hombre', '2024-03-29 12:16:25', '2024-03-29 12:16:25'),
@@ -336,7 +347,14 @@ INSERT INTO `prendas` (`id`, `nombre`, `estilo`, `color1`, `color2`, `imagen`, `
 (30, 'Pantalones Cargo Beige', 'casual', 'beige', 'beige', 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/262fec43239627ed2f2eaaa6eb2b311c.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp', 'pantalones', 35.99, 'hombre', '2024-06-01 06:14:31', '2024-06-01 06:14:31'),
 (31, 'Zapatillas Blancas Sketch-Lite', 'deportivo', 'blanco', 'blanco', 'https://cdn.palbincdn.com/users/26844/images/ZAPATILLAS-DEPORTIVAS-MUJER-MEMORY-FOAM-SKECHERS-SKECH-LITE-PRO-1696177642.jpg', 'calzado', 64.99, 'mujer', '2024-06-01 06:18:45', '2024-06-01 06:18:45'),
 (32, 'Pantalones Adidas Track', 'deportivo', 'negro', 'negro', 'https://bixoto.com/media/catalog/product/cache/2e45ba69d70625e0fc47dbc2d34862e1/4/0/4061619615715_S6494849_P02.jpg', 'pantalones', 39.99, 'mujer', '2024-06-01 06:29:42', '2024-06-01 06:29:42'),
-(33, 'Camiseta Adidas Negra', 'deportivo', 'negro', 'negro', 'https://trideporte.com/35529-medium_default/camiseta-manga-corta-adidas-designed-2-move-3-rayas-mujer-negra.jpg', 'arriba_interior', 24.99, 'mujer', '2024-06-01 06:42:29', '2024-06-01 06:42:29');
+(33, 'Camiseta Adidas Negra', 'deportivo', 'negro', 'negro', 'https://trideporte.com/35529-medium_default/camiseta-manga-corta-adidas-designed-2-move-3-rayas-mujer-negra.jpg', 'arriba_interior', 24.99, 'mujer', '2024-06-01 06:42:29', '2024-06-01 06:42:29'),
+(34, 'Pantalones Cortos Rotos', 'casual', 'azul', 'azul', 'https://www.teachei.es/wp-content/uploads/2023/12/pantalones-vaqueros-cortos-hombre-571xrn-1-1.jpg', 'pantalones_verano', 23.99, 'hombre', '2024-06-05 15:23:01', '2024-06-05 15:23:01'),
+(35, 'Sudadera BLKVIS', 'casual', 'gris', 'verde', 'https://img01.ztat.net/article/spp-media-p1/f491c08f63024562ba8f8eef43c741b8/87907358351844a5b5bb6600e29b7897.jpg?imwidth=1800&filter=packshot', 'arriba_normal', 69.99, 'hombre', '2024-06-05 15:46:50', '2024-06-05 16:14:20'),
+(36, 'Pantalones Adidas Original', 'deportivo', 'azul', 'azul', 'https://img01.ztat.net/article/spp-media-p1/2b32d97883cc4825b89c38de1c8e113e/af88b613aa31420baa6acbcd6e750253.jpg?imwidth=1800&filter=packshot', 'pantalones', 44.99, 'hombre', '2024-06-05 15:58:04', '2024-06-05 15:58:04'),
+(37, 'Pantalones Verdes Adidas', 'deportivo', 'verde', 'verde', 'https://img01.ztat.net/article/spp-media-p1/3bc0f80a65654c9c887cc75ea92920ec/a25bb5a577f748a29fd1dbd8ec56c195.jpg?imwidth=1800&filter=packshot', 'pantalones_verano', 33.95, 'hombre', '2024-06-05 16:06:39', '2024-06-05 16:06:39'),
+(38, 'Top Embellished', 'casual', 'beige', 'beige', 'https://img01.ztat.net/article/spp-media-p1/8199e36f1135404fb056c63f4d66876d/86fbbd039bf14cc0b9b4d2df530714f5.jpg?imwidth=1800&filter=packshot', 'arriba_interior', 24.99, 'mujer', '2024-06-05 16:13:56', '2024-06-05 16:13:56'),
+(39, 'Pantalones ONLZABBI', 'casual', 'verde', 'verde', 'https://img01.ztat.net/article/spp-media-p1/9badd0a326eb427496266ccccb56b34c/00ab07479b674f3191b53b4d56743181.jpg?imwidth=1800', 'pantalones', 32.99, 'mujer', '2024-06-05 16:47:11', '2024-06-05 16:47:11'),
+(40, 'Pantalon Corto Nike Deporte', 'deportivo', 'negro', 'negro', 'https://img01.ztat.net/article/spp-media-p1/6c25a45dc0ec4ebdbc7337e410d18a58/07d57177993a43efa03e976266a0c439.jpg?imwidth=1800', 'pantalones_verano', 29.99, 'mujer', '2024-06-05 17:03:55', '2024-06-05 17:03:55');
 
 -- --------------------------------------------------------
 
@@ -358,7 +376,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('QQaXqwMoJ1LMlZrhrDwGgdW3R5t4l9W1I6xVtfRH', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUHFRNXhpN3pyamZBeFpmblZUdnJSTmo0cHpPTDZLR3NsMDBLNFY5eCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjU7fQ==', 1717236934);
+('Tjw38NRzrcx3ibioATyOdKNl2NN9zXWrb40Pdbx7', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoienJiRlZJY3M1ZmlRc2NuY3gyZW9kbUN4MTJ3R043dGJSYVpJdFJwNSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcmVuZGFzY3JlYXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo1O30=', 1717517564),
+('zSTFXKEke41W0cHhBpuFHeD1UIjEwTRmvuC0LXEW', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZGRmekxpTmZ5RUNRY1gyY1J4VWZCcG5reERoTXJIakdLcExUSmZCdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjU7fQ==', 1717614235);
 
 -- --------------------------------------------------------
 
@@ -520,7 +539,7 @@ ALTER TABLE `carritos`
 -- AUTO_INCREMENT de la tabla `carrito_prenda`
 --
 ALTER TABLE `carrito_prenda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -544,19 +563,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `outfits`
 --
 ALTER TABLE `outfits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT de la tabla `outfit_prenda`
 --
 ALTER TABLE `outfit_prenda`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=583;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=589;
 
 --
 -- AUTO_INCREMENT de la tabla `prendas`
 --
 ALTER TABLE `prendas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
