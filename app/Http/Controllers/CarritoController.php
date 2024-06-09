@@ -117,17 +117,17 @@ class CarritoController extends Controller
 {
 
     $combinacionesColores = [
-        'rojo' => ['negro', 'blanco', 'azul', 'gris', 'beige', 'verde oscuro'],
+        'rojo' => ['negro', 'blanco', 'azul', 'gris', 'beige'],
         'azul' => ['blanco', 'gris', 'negro', 'beige', 'amarillo', 'rojo'],
-        'verde' => ['marrón', 'negro', 'blanco', 'gris', 'beige', 'azul marino'],
+        'verde' => ['marron', 'negro', 'blanco', 'gris', 'beige'],
         'negro' => ['blanco', 'gris', 'rojo', 'azul', 'verde', 'marrón'],
         'blanco' => ['negro', 'azul', 'rojo', 'verde', 'marrón', 'gris'],
         'gris' => ['negro', 'blanco', 'rojo', 'azul', 'verde', 'amarillo'],
-        'marrón' => ['beige', 'verde', 'blanco', 'gris', 'azul marino'],
+        'marrón' => ['beige', 'verde', 'blanco', 'gris'],
         'beige' => ['marrón', 'blanco', 'verde', 'azul', 'gris', 'rojo'],
         'amarillo' => ['azul', 'negro', 'gris', 'blanco'],
         'naranja' => ['azul', 'blanco', 'negro', 'gris'],
-        'rosa' => ['gris', 'blanco', 'negro', 'azul marino'],
+        'rosa' => ['gris', 'blanco', 'negro'],
         'morado' => ['gris', 'blanco', 'negro', 'rosa', 'azul']
         
     ];

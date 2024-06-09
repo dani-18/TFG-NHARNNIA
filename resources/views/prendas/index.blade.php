@@ -78,6 +78,7 @@
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ $prenda->nombre }}</h5>
               <p class="card-text text-muted">{{ $prenda->precio }}€</p>
+              <p class="card-text text-muted">{{ $prenda->genero }}</p>
               <a href="{{ route('prendas.show', $prenda->id) }}" class="btn btn-dark btn-sm mt-auto">Ver detalles</a>
             </div>
           </div>
